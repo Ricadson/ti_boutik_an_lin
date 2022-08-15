@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ti_boutik_an_lin/screens/login_screen.dart';
+import 'package:ti_boutik_an_lin/State/produitState.dart';
 
 void main() {
   runApp(const HomePage());
@@ -15,9 +17,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => ProduitState())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginScreen(),
+      ),
     );
   }
 }
