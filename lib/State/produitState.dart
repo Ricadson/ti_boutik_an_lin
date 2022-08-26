@@ -12,11 +12,12 @@ class ProduitState with ChangeNotifier {
       http.Response response =
           await http.get(Uri.parse("https://fakestoreapi.com/products"));
       var data = json.decode(response.body) as List;
-      print(data);
+
       List<Produit> produits = [];
       data.forEach((element) {
         Produit post = Produit.fromJson(element);
         produits.add(post);
+        print(element);
       });
       _categorie = produits;
     } catch (e) {

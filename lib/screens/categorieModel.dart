@@ -1,11 +1,12 @@
 class Produit {
-  final int? id;
+  var id;
   final String? title;
-  final double? price;
+  // ignore: prefer_typing_uninitialized_variables
+  var price;
   final String? description;
   final String? category;
   final String? image;
-  final Rating? rating;
+  var rating;
 
   Produit({
     this.id,
@@ -18,9 +19,9 @@ class Produit {
   });
 
   Produit.fromJson(Map<String, dynamic> json)
-      : id = json['id'] as int?,
+      : id = json['id'],
         title = json['title'] as String?,
-        price = json['price'] as double?,
+        price = json['price'],
         description = json['description'] as String?,
         category = json['category'] as String?,
         image = json['image'] as String?,
@@ -40,8 +41,8 @@ class Produit {
 }
 
 class Rating {
-  final double? rate;
-  final int? count;
+  var rate;
+  var count;
 
   Rating({
     this.rate,
@@ -49,8 +50,8 @@ class Rating {
   });
 
   Rating.fromJson(Map<String, dynamic> json)
-      : rate = json['rate'] as double?,
-        count = json['count'] as int?;
+      : rate = json['rate'],
+        count = json['count'];
 
   Map<String, dynamic> toJson() => {'rate': rate, 'count': count};
 }
